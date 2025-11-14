@@ -1,0 +1,28 @@
+# Bỏ qua các file cấu hình của VS Code
+.vscode/
+
+# Bỏ qua các file build và thư mục đích của Maven
+/target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Bỏ qua các file log, file tạm
+*.log
+*.tmp
+
+# Bỏ qua các file do các IDE khác (như IntelliJ, Eclipse) tạo ra (để phòng hờ)
+.idea/
+*.iml
+.settings/
+.classpath
+.project
+bin/
+
+# Bỏ qua các file hệ điều hành
+.DS_Store
+Thumbs.db
