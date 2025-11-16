@@ -1,0 +1,6 @@
+1. Chuyện gì xảy ra và Tại sao?
+Khi thêm phương thức addDVD(DigitalVideoDisc ...discs) vào lớp Cart, trình biên dịch Java sẽ báo lỗi "ambiguous method call" (lời gọi phương thức không rõ ràng) hoặc "duplicate method" (phương thức trùng lặp).
+Lý do là vì:
+Trong Java, Varargs (biểu diễn bằng dấu ...) thực chất chỉ là một cách viết tắt cho việc truyền vào một mảng. Khi trình biên dịch thấy một phương thức có chữ ký method(Type ... args), nó sẽ tự động hiểu rằng phương thức này có thể nhận một mảng Type[] hoặc một danh sách các đối số kiểu Type được liệt kê rời rạc.
+Do đó, chữ ký của hai phương thức sau đây được coi là hoàn toàn giống nhau đối với máy ảo Java (JVM) sau khi biên dịch.
+2. Phương án giải quyết là giữ lại phương thức Varargs vì nó linh hoạt hơn trong việc truyền tham số
