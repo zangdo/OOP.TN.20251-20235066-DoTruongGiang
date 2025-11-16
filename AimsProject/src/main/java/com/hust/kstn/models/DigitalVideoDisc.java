@@ -25,6 +25,12 @@ public class DigitalVideoDisc {
         this(title, genre, price, director);
         this.length = length;
     }
+    @Override
+    public String toString() {
+        // Sử dụng String.format() để code sạch sẽ và dễ đọc hơn
+        return String.format("DVD[%d] - [%s] - [%s] - [%d] - [%.2f$] - [%s]",
+                this.id, this.title, this.genre, this.length, this.price, this.director);
+    }
     public int getId() {
         return id;
     }
