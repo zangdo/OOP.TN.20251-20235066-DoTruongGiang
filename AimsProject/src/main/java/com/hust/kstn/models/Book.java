@@ -23,6 +23,24 @@ public class Book {
             this.authors.add(author);
         }
     }
+    public int getId() {
+        return id;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public String getGenre() {
+        return genre;
+    }
+    public double getPrice() {
+        return price;
+    }
+    public List<BookAuthor> getAuthors() {
+        return authors;
+    }
+    public int getLength() {
+        return length;
+    }
     @Override
     public String toString() {
         StringBuilder authorsString = new StringBuilder();
