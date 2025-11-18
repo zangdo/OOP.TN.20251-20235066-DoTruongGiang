@@ -28,7 +28,6 @@ public class CompactDiscTest {
                 "Meteora",
                 "Nu Metal",
                 15.99,
-                2196,
                 artists,
                 directors,
                 initialTracks

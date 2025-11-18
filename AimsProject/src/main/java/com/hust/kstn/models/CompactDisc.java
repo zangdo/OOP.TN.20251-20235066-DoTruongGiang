@@ -1,52 +1,31 @@
 package com.hust.kstn.models;
 import java.util.List;
 import java.util.ArrayList;
-public class CompactDisc {
-    private int id;
-    private static int nbCompactDiscs = 0;
-    private String title;
-    private String genre;
-    private double price;
+public class CompactDisc extends Disc{
     private List<String> artists = new ArrayList<>();
     private List<String> directors = new ArrayList<>();
-    private int length;
     private List<Track> tracks = new ArrayList<>();
     public CompactDisc(String title) {
-        nbCompactDiscs++;
-        this.id = nbCompactDiscs;
-        this.title = title;
+        super(title);
     }
-    public CompactDisc(String title, String genre, double price, int length, List<String> artists, List<String> directors, List<Track> tracks) {
-        this(title);
-        this.genre = genre;
-        this.price = price;
-        this.length = length;
-        this.artists = artists;
-        this.directors = directors;
+    public CompactDisc(String title, String genre, double price,List<String> artists, List<String> directors, List<Track> tracks) {
+        super(title,genre,price);
+        // Copying lists to avoid external reference issues
+        for (String artist : artists) {
+            this.artists.add(artist);
+        }
+        for (String director : directors) {
+            this.directors.add(director);
+        }
         for (Track track : tracks) {
             this.tracks.add(new Track(track.getTitle(), track.getLength()));
         }
-    }
-    public int getId() {
-        return id;
-    }
-    public String getTitle() {
-        return title;
-    }
-    public String getGenre() {
-        return genre;
-    }
-    public double getPrice() {
-        return price;
     }
     public List<String> getArtists() {
         return artists;
     }
     public List<String> getDirectors() {
         return directors;
-    }
-    public int getLength() {
-        return length;
     }
     public List<Track> getTracks() {
         return tracks;
@@ -84,6 +63,14 @@ public class CompactDisc {
             System.out.println("Track not found!");
         }
     }
+    @Override 
+    public void play() {
+        System.out.println("Playing CD: " + this.getTitle());
+        System.out.println("CD length: " + this.totalLength());
+        for (Track track : this.tracks) {
+            System.out.println("Playing track: " + track.toString());
+        }
+    }
     @Override
     public String toString() {
         StringBuilder artistsString = new StringBuilder();
@@ -104,8 +91,8 @@ public class CompactDisc {
         for (Track track : this.tracks) {
             tracksString.append(track.toString());
         }
-        return String.format("CD[%d] - [%s] - [%s] - [%d sec] - [%.2f$]%nArtists: %s%nDirectors: %s%nTracks:%n%s",
-                this.id, this.title, this.genre, this.length, this.price,
+        return String.format("CD %s [%d sec]%nArtists: %s%nDirectors: %s%nTracks:%n%s",
+                super.toString(), this.totalLength(),
                 artistsString.toString(), directorsString.toString(), tracksString.toString());
     }
 }
