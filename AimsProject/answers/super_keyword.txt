@@ -1,0 +1,4 @@
+1. Gọi constructor của lớp cha (super(...))
+Ý nghĩa: Dòng super(title, cost, category); dùng để gọi đến phương thức khởi tạo (constructor) tương ứng của lớp cha là Media.
+Khi một đối tượng của lớp con (Book) được tạo ra, một phần của đối tượng đó chính là một đối tượng của lớp cha (Media). Phần của lớp cha này cũng cần được khởi tạo đúng cách. Lệnh super(...) đảm bảo rằng các thuộc tính mà Book kế thừa từ Media (như title, cost, category) được gán giá trị thông qua constructor của chính lớp Media.
+Quy tắc bắt buộc: Trong Java, lệnh gọi constructor của lớp cha (super(...)) phải là câu lệnh đầu tiên trong constructor của lớp con.

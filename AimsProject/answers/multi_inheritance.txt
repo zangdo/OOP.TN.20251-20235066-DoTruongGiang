@@ -1,0 +1,8 @@
+Java chỉ hỗ trợ đơn kế thừa (một lớp chỉ có thể extends một lớp cha duy nhất) chủ yếu để tránh sự phức tạp và mơ hồ, đặc biệt là để giải quyết một vấn đề kinh điển trong lập trình hướng đối tượng gọi là "Vấn đề Kim Cương" (The Diamond Problem).
+1. Vấn đề Kim Cương (The Diamond Problem) là gì?
+Giả suw cấu trúc kế thừa sau:
+Lớp D kế thừa từ hai lớp B và C.
+Cả hai lớp B và C đều kế thừa từ một lớp chung là A.
+Giả sử lớp A có một phương thức là doSomething().
+Cả B và C đều ghi đè (override) phương thức doSomething() với cách triển khai riêng của chúng.
+Vấn đề phát sinh: Khi bạn tạo một đối tượng của lớp D và gọi phương thức doSomething(), trình biên dịch sẽ không biết phải thực thi phiên bản doSomething() của lớp B hay của lớp C. Sự mơ hồ này chính là "Vấn đề Kim Cương".
