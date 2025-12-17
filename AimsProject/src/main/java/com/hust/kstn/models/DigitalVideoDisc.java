@@ -19,6 +19,10 @@ public class DigitalVideoDisc extends Disc {
     }
     @Override
     public void play() {
+        if(this.length <= 0) {
+            System.out.println("ERROR: DVD length is non-positive!");
+            return;
+        }
         System.out.println("Playing DVD: " + this.getTitle());
         System.out.println("DVD length: " + this.length);
     }

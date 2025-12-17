@@ -65,6 +65,10 @@ public class CompactDisc extends Disc{
     }
     @Override 
     public void play() {
+        if(this.totalLength() <= 0) {
+            System.out.println("ERROR: CD length is non-positive!");
+            return;
+        }
         System.out.println("Playing CD: " + this.getTitle());
         System.out.println("CD length: " + this.totalLength());
         for (Track track : this.tracks) {
