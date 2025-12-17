@@ -27,6 +27,32 @@
             <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>21</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>21</version>
+        </dependency>
     </dependencies>
+
+    <!-- PHẦN THÊM VÀO Ở ĐÂY -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <!-- QUAN TRỌNG: Thay thế dòng dưới bằng tên class chạy chính của bạn -->
+                    <!-- Ví dụ: com.hust.kstn.HelloApplication -->
+                    <mainClass>com.hust.kstn.TênClassChínhCủaBạn</mainClass> 
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
